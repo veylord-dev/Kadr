@@ -267,7 +267,7 @@ final class EditorController: NSWindowController, NSWindowDelegate {
     }
 
     private func updateTitle() {
-        window?.title = "ShotCap — \(base.width) × \(base.height)"
+        window?.title = "Kadr — \(base.width) × \(base.height)"
     }
 
     func updateStatus(color: NSColor?, extra: String? = nil) {

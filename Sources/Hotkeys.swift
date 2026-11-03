@@ -110,7 +110,7 @@ enum HotAction: String, CaseIterable {
 }
 
 extension Notification.Name {
-    static let hotkeysChanged = Notification.Name("ShotCapHotkeysChanged")
+    static let hotkeysChanged = Notification.Name("KadrHotkeysChanged")
 }
 
 // MARK: - Global hotkeys (Carbon, не требует прав Accessibility)

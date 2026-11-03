@@ -69,7 +69,7 @@ enum Capture {
         CGRequestScreenCaptureAccess()
         let alert = NSAlert()
         alert.messageText = L("Нужен доступ к записи экрана", "Screen recording access required")
-        alert.informativeText = L("Разрешите ShotCap в «Системные настройки → Конфиденциальность и безопасность → Запись экрана и системного аудио», затем перезапустите приложение.", "Allow ShotCap in “System Settings → Privacy & Security → Screen & System Audio Recording”, then restart the app.")
+        alert.informativeText = L("Разрешите Kadr в «Системные настройки → Конфиденциальность и безопасность → Запись экрана и системного аудио», затем перезапустите приложение.", "Allow Kadr in “System Settings → Privacy & Security → Screen & System Audio Recording”, then restart the app.")
         alert.addButton(withTitle: L("Открыть настройки", "Open Settings"))
         alert.addButton(withTitle: L("Позже", "Later"))
         NSApp.activate(ignoringOtherApps: true)

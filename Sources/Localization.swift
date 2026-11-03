@@ -20,7 +20,7 @@ enum Language: String, CaseIterable {
 }
 
 extension Notification.Name {
-    static let languageChanged = Notification.Name("ShotCapLanguageChanged")
+    static let languageChanged = Notification.Name("KadrLanguageChanged")
 }
 
 // Строка интерфейса на текущем языке.

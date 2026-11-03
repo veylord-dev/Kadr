@@ -1,4 +1,4 @@
-# ShotCap
+# Kadr
 
 **[Русский](#русский) · [English](#english)**
 
@@ -6,7 +6,7 @@
 
 ## Русский
 
-Лёгкое приложение в строке меню macOS для скриншотов и записи экрана (аналог Shottr).
+**Kadr** (от слова «кадр») — лёгкое приложение в строке меню macOS для скриншотов и записи экрана (аналог Shottr).
 Нативное: AppKit + ScreenCaptureKit, без сторонних зависимостей. Интерфейс на русском и английском.
 
 ### Возможности
@@ -32,15 +32,15 @@
 
 **Готовое приложение (рекомендуется)**
 
-1. Скачайте `ShotCap.zip` из [последнего релиза](https://github.com/veylord-dev/ShotCap/releases/latest).
-2. Распакуйте архив и перенесите **ShotCap.app** в папку «Программы».
+1. Скачайте `Kadr.zip` из [последнего релиза](https://github.com/veylord-dev/Kadr/releases/latest).
+2. Распакуйте архив и перенесите **Kadr.app** в папку «Программы».
 3. Приложение не заверено Apple, поэтому при первом запуске нажмите на него **правой кнопкой → «Открыть»** и
    подтвердите. Либо выполните в Терминале:
    ```bash
-   xattr -dr com.apple.quarantine /Applications/ShotCap.app
+   xattr -dr com.apple.quarantine /Applications/Kadr.app
    ```
 4. Разрешите доступ: **Системные настройки → Конфиденциальность и безопасность → Запись экрана и системного
-   аудио** → включите ShotCap, затем перезапустите приложение.
+   аудио** → включите Kadr, затем перезапустите приложение.
 5. Значок появится в строке меню. Автозапуск при входе в систему включается сам; выключить можно в меню значка
    или в Настройках. Язык интерфейса — «Настройки → Основные → Язык».
 
@@ -51,11 +51,11 @@
 Нужны только Command Line Tools (`xcode-select --install`), Xcode не требуется.
 
 ```bash
-git clone https://github.com/veylord-dev/ShotCap.git
-cd ShotCap
-./build.sh            # собрать build/ShotCap.app
+git clone https://github.com/veylord-dev/Kadr.git
+cd Kadr
+./build.sh            # собрать build/Kadr.app
 ./build.sh install    # собрать и установить в /Applications
-./build.sh release    # собрать архив build/ShotCap.zip для релиза
+./build.sh release    # собрать архив build/Kadr.zip для релиза
 ```
 
 ### Горячие клавиши (меняются в Настройках)
@@ -105,7 +105,7 @@ Swift, один исполняемый файл без Xcode-проекта и �
   для выделения — поэтому лупа точна до пикселя, а результат обрезается из уже готового снимка.
 - Аннотации — значения (`struct`), поэтому отмена хранит просто копии массива. Один и тот же код рисует их
   на холсте и в итоговом изображении в полном разрешении.
-- Запись: `SCRecordingOutput` сам пишет файл с видео и звуком; окна самого ShotCap исключены из кадра.
+- Запись: `SCRecordingOutput` сам пишет файл с видео и звуком; окна самого Kadr исключены из кадра.
 - Перевод: каждая строка интерфейса записана как `L("русский", "English")`; при смене языка меню и настройки
   перестраиваются сразу.
 
@@ -113,7 +113,7 @@ Swift, один исполняемый файл без Xcode-проекта и �
 
 ## English
 
-A lightweight macOS menu bar app for screenshots and screen recording, inspired by Shottr.
+**Kadr** (Russian for “frame / shot”) is a lightweight macOS menu bar app for screenshots and screen recording, inspired by Shottr.
 Native AppKit + ScreenCaptureKit, no third-party dependencies. Interface in English and Russian.
 
 ### Features
@@ -139,14 +139,14 @@ Native AppKit + ScreenCaptureKit, no third-party dependencies. Interface in Engl
 
 **Prebuilt app (recommended)**
 
-1. Download `ShotCap.zip` from the [latest release](https://github.com/veylord-dev/ShotCap/releases/latest).
-2. Unzip it and move **ShotCap.app** to the Applications folder.
+1. Download `Kadr.zip` from the [latest release](https://github.com/veylord-dev/Kadr/releases/latest).
+2. Unzip it and move **Kadr.app** to the Applications folder.
 3. The app is not notarized by Apple, so on first launch **right-click it → Open** and confirm.
    Or run in Terminal:
    ```bash
-   xattr -dr com.apple.quarantine /Applications/ShotCap.app
+   xattr -dr com.apple.quarantine /Applications/Kadr.app
    ```
-4. Grant access: **System Settings → Privacy & Security → Screen & System Audio Recording** → turn on ShotCap,
+4. Grant access: **System Settings → Privacy & Security → Screen & System Audio Recording** → turn on Kadr,
    then restart the app.
 5. The icon appears in the menu bar. Launch at login is enabled automatically; turn it off from the menu or in
    Settings. Interface language is in Settings → General → Language.
@@ -158,11 +158,11 @@ Requires macOS 15 or later, Apple Silicon or Intel.
 Only the Command Line Tools are needed (`xcode-select --install`); Xcode is not required.
 
 ```bash
-git clone https://github.com/veylord-dev/ShotCap.git
-cd ShotCap
-./build.sh            # build build/ShotCap.app
+git clone https://github.com/veylord-dev/Kadr.git
+cd Kadr
+./build.sh            # build build/Kadr.app
 ./build.sh install    # build and install to /Applications
-./build.sh release    # build the build/ShotCap.zip release archive
+./build.sh release    # build the build/Kadr.zip release archive
 ```
 
 ### Shortcuts (configurable in Settings)
@@ -211,6 +211,6 @@ a universal binary (arm64 + x86_64).
   is pixel-accurate and the result is cropped from the captured image.
 - Annotations are value types (`struct`), so undo just stores copies of the array. The same code draws them on
   the canvas and into the full-resolution output image.
-- Recording: `SCRecordingOutput` writes the video and audio file directly; ShotCap's own windows are excluded.
+- Recording: `SCRecordingOutput` writes the video and audio file directly; Kadr's own windows are excluded.
 - Localization: every UI string is written as `L("русский", "English")`; changing the language rebuilds the menu
   and settings immediately.

@@ -43,8 +43,8 @@ enum Prefs {
             Key.copyOnCapture: true,
             Key.imageFormat: "png",
             Key.sound: true,
-            Key.screenshotFolder: pictures.appendingPathComponent("ShotCap").path,
-            Key.videoFolder: movies.appendingPathComponent("ShotCap").path,
+            Key.screenshotFolder: pictures.appendingPathComponent("Kadr").path,
+            Key.videoFolder: movies.appendingPathComponent("Kadr").path,
             Key.fps: 60,
             Key.showCursor: true,
             Key.showClicks: true,
@@ -99,7 +99,7 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
             tabs.addTabViewItem(item)
         }
         let window = NSWindow(contentViewController: tabs)
-        window.title = L("Настройки ShotCap", "ShotCap Settings")
+        window.title = L("Настройки Kadr", "Kadr Settings")
         window.styleMask = [.titled, .closable]
         window.toolbarStyle = .preference
         window.isReleasedWhenClosed = false
@@ -112,7 +112,7 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
 
     // Подписи вкладок и заголовок — на текущем языке (содержимое SwiftUI обновляется само).
     private func updateTexts() {
-        window?.title = L("Настройки ShotCap", "ShotCap Settings")
+        window?.title = L("Настройки Kadr", "Kadr Settings")
         guard let tabs = window?.contentViewController as? NSTabViewController else { return }
         for (item, page) in zip(tabs.tabViewItems, SettingsView.Page.allCases) {
             item.label = page.title

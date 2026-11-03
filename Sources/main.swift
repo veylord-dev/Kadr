@@ -93,7 +93,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(loginItem)
         menu.addItem(item(L("Настройки…", "Settings…"), "gearshape", #selector(openSettings), key: ","))
         menu.addItem(.separator())
-        menu.addItem(item(L("Выйти из ShotCap", "Quit ShotCap"), nil, #selector(quit), key: "q"))
+        menu.addItem(item(L("Выйти из Kadr", "Quit Kadr"), nil, #selector(quit), key: "q"))
         refreshShortcuts()
     }
 
@@ -188,7 +188,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             return true
         }
         image.isTemplate = true
-        image.accessibilityDescription = "ShotCap"
+        image.accessibilityDescription = "Kadr"
         return image
     }
 
@@ -427,8 +427,8 @@ private func buildMainMenu() -> NSMenu {
     let appMenu = NSMenu()
     appMenu.addItem(withTitle: L("Настройки…", "Settings…"), action: Selector(("openSettingsFromMenu:")), keyEquivalent: ",")
     appMenu.addItem(.separator())
-    appMenu.addItem(withTitle: L("Скрыть ShotCap", "Hide ShotCap"), action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
-    appMenu.addItem(withTitle: L("Выйти из ShotCap", "Quit ShotCap"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+    appMenu.addItem(withTitle: L("Скрыть Kadr", "Hide Kadr"), action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
+    appMenu.addItem(withTitle: L("Выйти из Kadr", "Quit Kadr"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
     appItem.submenu = appMenu
     main.addItem(appItem)
 
