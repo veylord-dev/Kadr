@@ -6,7 +6,7 @@
 
 ## Русский
 
-**Kadr** (от слова «кадр») — лёгкое приложение в строке меню macOS для скриншотов и записи экрана.
+**Kadr** — лёгкое приложение в строке меню macOS для скриншотов и записи экрана.
 Нативное: AppKit + ScreenCaptureKit, без сторонних зависимостей. Интерфейс на русском и английском.
 
 ### Возможности
@@ -113,7 +113,7 @@ Swift, один исполняемый файл без Xcode-проекта и �
 
 ## English
 
-**Kadr** (Russian for “frame / shot”) is a lightweight macOS menu bar app for screenshots and screen recording.
+**Kadr** is a lightweight macOS menu bar app for screenshots and screen recording.
 Native AppKit + ScreenCaptureKit, no third-party dependencies. Interface in English and Russian.
 
 ### Features
