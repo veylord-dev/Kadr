@@ -6,211 +6,192 @@
 
 ## Русский
 
-**Kadr** — лёгкое приложение в строке меню macOS для скриншотов и записи экрана.
-Нативное: AppKit + ScreenCaptureKit, без сторонних зависимостей. Интерфейс на русском и английском.
+Приложение в строке меню macOS для скриншотов и записи экрана. Интерфейс на русском и английском.
 
 ### Возможности
 
 **Скриншоты**
-- Выделение области на «замороженном» экране: лупа с пикселями, цвет в HEX, размер в пикселях
-- Снимок окна (клик по окну или Space — режим окон) с прозрачными скруглёнными углами
-- Весь экран, снимок с задержкой (3/5/10 с), снимок с закреплением поверх всех окон
-- Распознавание текста (OCR, русский/английский) и QR-кодов сразу в буфер обмена
-- Редактирование картинки из буфера обмена или файла
+- Область, окно, весь экран
+- Лупа с пикселями, цвет в HEX и размер в пикселях при выделении
+- Снимок с задержкой: 3, 5, 10 с
+- Закрепление снимка поверх окон
+- Распознавание текста (русский, английский) и QR-кодов в буфер обмена
+- Открытие изображения из буфера обмена или файла
 
 **Редактор**
-- Стрелка, линия, прямоугольник, овал, карандаш, маркер, текст, нумерация шагов
-- Пикселизация, прожектор, обрезка, пипетка, линейка в пикселях
-- Отмена/повтор, масштаб, копирование, сохранение PNG/JPEG, закрепление, OCR
+- Стрелка, линия, прямоугольник, овал, карандаш, маркер, текст, нумерация
+- Пикселизация, прожектор, обрезка, пипетка, линейка
+- Отмена и повтор, масштаб, копирование, сохранение в PNG и JPEG
 
 **Запись видео**
-- Выделенная область (рамку можно подвинуть до старта), отдельное окно, приложение целиком или весь экран
-- Системный звук, микрофон, курсор, подсветка кликов, 24/30/60 к/с, MP4/MOV, H.264/HEVC, обратный отсчёт
-- Остановка кликом по значку в строке меню, кнопкой «Стоп» на панели или той же горячей клавишей
+- Область, окно, приложение, весь экран
+- Системный звук, микрофон, курсор, подсветка кликов
+- 24, 30, 60 к/с; MP4, MOV; H.264, HEVC; обратный отсчёт
 
 ### Установка
 
-**Готовое приложение (рекомендуется)**
-
 1. Скачайте `Kadr.zip` из [последнего релиза](https://github.com/veylord-dev/Kadr/releases/latest).
-2. Распакуйте архив и перенесите **Kadr.app** в папку «Программы».
-3. Приложение не заверено Apple, поэтому при первом запуске нажмите на него **правой кнопкой → «Открыть»** и
-   подтвердите. Либо выполните в Терминале:
+2. Распакуйте и перенесите `Kadr.app` в «Программы».
+3. При первом запуске: правый клик по приложению → «Открыть». Или в Терминале:
    ```bash
    xattr -dr com.apple.quarantine /Applications/Kadr.app
    ```
-4. Разрешите доступ: **Системные настройки → Конфиденциальность и безопасность → Запись экрана и системного
-   аудио** → включите Kadr, затем перезапустите приложение.
-5. Значок появится в строке меню. Автозапуск при входе в систему включается сам; выключить можно в меню значка
-   или в Настройках. Язык интерфейса — «Настройки → Основные → Язык».
+4. «Системные настройки → Конфиденциальность и безопасность → Запись экрана и системного аудио» → включите Kadr
+   и перезапустите приложение.
 
-Требуется macOS 15 или новее, Apple Silicon или Intel.
+Требования: macOS 15+, Apple Silicon или Intel.
 
-**Сборка из исходников**
+Автозапуск при входе включается при первом запуске; отключается в меню приложения или в настройках.
+Язык: «Настройки → Основные → Язык».
 
-Нужны только Command Line Tools (`xcode-select --install`), Xcode не требуется.
+### Сборка
+
+Нужны Command Line Tools (`xcode-select --install`).
 
 ```bash
 git clone https://github.com/veylord-dev/Kadr.git
 cd Kadr
-./build.sh            # собрать build/Kadr.app
-./build.sh install    # собрать и установить в /Applications
-./build.sh release    # собрать архив build/Kadr.zip для релиза
+./build.sh            # build/Kadr.app
+./build.sh install    # установка в /Applications
+./build.sh release    # архив build/Kadr.zip
 ```
 
-### Горячие клавиши (меняются в Настройках)
+### Горячие клавиши
+
+Меняются в настройках.
 
 | Действие | Клавиши |
 |---|---|
 | Скриншот области | ⌥⇧1 |
 | Скриншот окна | ⌥⇧2 |
 | Скриншот всего экрана | ⌥⇧3 |
-| Распознать текст (OCR) | ⌥⇧4 |
+| Распознать текст | ⌥⇧4 |
 | Запись области | ⌥⇧5 |
-| Запись окна / приложения | ⌥⇧6 |
+| Запись окна или приложения | ⌥⇧6 |
 | Запись всего экрана | ⌥⇧7 |
 | Скриншот и закрепить | ⌥⇧8 |
 
-**Выделение:** перетаскивание — область · клик — окно · Space — режим окон · ↩ — весь экран ·
-C — скопировать цвет · Esc — отмена. При записи ⌥ + клик по окну записывает всё приложение.
+**Выделение:** перетаскивание — область, клик — окно, Space — режим окон, ↩ — весь экран, C — копировать цвет,
+Esc — отмена. При записи ⌥ + клик по окну — всё приложение.
 
-**Редактор:** V выбор · A стрелка · L линия · R прямоугольник · O овал · P карандаш · M маркер · T текст ·
-N нумерация · B пикселизация · S прожектор · K обрезка · I пипетка · U линейка. Shift — ровные углы и квадраты.
-⌘C копировать · ⌘S сохранить · ⇧⌘S сохранить как · ⌘P закрепить · ⌘Z/⇧⌘Z отмена/повтор ·
-⌘+/⌘−/⌘0/⌘9 масштаб · ⌫ удалить · Esc закрыть.
+**Редактор:** V выбор, A стрелка, L линия, R прямоугольник, O овал, P карандаш, M маркер, T текст, N нумерация,
+B пикселизация, S прожектор, K обрезка, I пипетка, U линейка. Shift — углы 45° и квадраты.
+⌘C копировать, ⌘S сохранить, ⇧⌘S сохранить как, ⌘P закрепить, ⌘Z / ⇧⌘Z отмена и повтор,
+⌘+ / ⌘− / ⌘0 / ⌘9 масштаб, ⌫ удалить, Esc закрыть.
 
-### О коде
+### Код
 
-Swift, один исполняемый файл без Xcode-проекта и зависимостей. Собирается `swiftc` из `build.sh` в
+Swift, AppKit, ScreenCaptureKit, Vision. Без Xcode-проекта и сторонних зависимостей. `build.sh` собирает
 универсальный бинарник (arm64 + x86_64).
 
-| Файл | Что внутри |
+| Файл | Содержимое |
 |---|---|
-| `Sources/main.swift` | Точка входа, меню в строке меню, обработка действий, сценарии скриншота и записи |
-| `Sources/Capture.swift` | Снимки через ScreenCaptureKit, список окон, геометрия экранов, сохранение и копирование изображений |
-| `Sources/SelectionOverlay.swift` | Полноэкранное выделение: область, окно, лупа, рамка с ручками перед записью |
-| `Sources/Editor.swift` | Окно редактора, панель инструментов, холст, отмена/повтор, обрезка |
-| `Sources/Annotations.swift` | Инструменты и модель аннотаций, их отрисовка и итоговый рендер картинки |
-| `Sources/Recorder.swift` | Запись видео через `SCStream` + `SCRecordingOutput`, рамка области и панель с таймером |
-| `Sources/PinAndOCR.swift` | Закреплённые окна-снимки, распознавание текста и QR (Vision), окно с текстом |
-| `Sources/Toast.swift` | Всплывающие уведомления и обратный отсчёт |
-| `Sources/Hotkeys.swift` | Глобальные горячие клавиши (Carbon) и поле записи сочетаний |
-| `Sources/Settings.swift` | Настройки (SwiftUI), значения по умолчанию, автозапуск |
-| `Sources/Localization.swift` | Выбор языка и функция `L("рус", "eng")` для строк интерфейса |
-| `Tools/make_icon.swift` | Генерация иконки приложения |
-| `build.sh` | Сборка, подпись, установка и архив для релиза |
-
-**Как устроено**
-- Скриншот: сначала снимаются все экраны в полном разрешении, затем поверх показывается «замороженная» картинка
-  для выделения — поэтому лупа точна до пикселя, а результат обрезается из уже готового снимка.
-- Аннотации — значения (`struct`), поэтому отмена хранит просто копии массива. Один и тот же код рисует их
-  на холсте и в итоговом изображении в полном разрешении.
-- Запись: `SCRecordingOutput` сам пишет файл с видео и звуком; окна самого Kadr исключены из кадра.
-- Перевод: каждая строка интерфейса записана как `L("русский", "English")`; при смене языка меню и настройки
-  перестраиваются сразу.
+| `Sources/main.swift` | Точка входа, меню, сценарии скриншота и записи |
+| `Sources/Capture.swift` | Захват через ScreenCaptureKit, список окон, сохранение и копирование |
+| `Sources/SelectionOverlay.swift` | Выделение области и окна, лупа |
+| `Sources/Editor.swift` | Окно редактора, холст, отмена, обрезка |
+| `Sources/Annotations.swift` | Модель и отрисовка аннотаций |
+| `Sources/Recorder.swift` | Запись через `SCStream` и `SCRecordingOutput` |
+| `Sources/PinAndOCR.swift` | Закреплённые снимки, распознавание текста и QR |
+| `Sources/Toast.swift` | Уведомления, обратный отсчёт |
+| `Sources/Hotkeys.swift` | Глобальные горячие клавиши (Carbon) |
+| `Sources/Settings.swift` | Настройки (SwiftUI), автозапуск |
+| `Sources/Localization.swift` | Выбор языка, функция `L("ru", "en")` |
+| `Tools/make_icon.swift` | Генерация иконки |
+| `build.sh` | Сборка, подпись, установка, архив |
 
 ---
 
 ## English
 
-**Kadr** is a lightweight macOS menu bar app for screenshots and screen recording.
-Native AppKit + ScreenCaptureKit, no third-party dependencies. Interface in English and Russian.
+macOS menu bar app for screenshots and screen recording. Interface in English and Russian.
 
 ### Features
 
 **Screenshots**
-- Area selection on a frozen screen with a pixel loupe, HEX color and pixel size readout
-- Window capture (click a window, or Space for window mode) with transparent rounded corners
-- Full screen, delayed capture (3/5/10 s), capture and pin on top of all windows
-- Text recognition (OCR, English/Russian) and QR code reading straight to the clipboard
-- Edit an image from the clipboard or a file
+- Area, window, full screen
+- Pixel loupe, HEX color and pixel size while selecting
+- Delayed capture: 3, 5, 10 s
+- Pin a screenshot on top of other windows
+- Text (English, Russian) and QR code recognition to the clipboard
+- Open an image from the clipboard or a file
 
 **Editor**
 - Arrow, line, rectangle, oval, pen, highlighter, text, step counter
-- Pixelate, spotlight, crop, color picker, pixel ruler
-- Undo/redo, zoom, copy, save as PNG/JPEG, pin, OCR
+- Pixelate, spotlight, crop, color picker, ruler
+- Undo and redo, zoom, copy, save as PNG and JPEG
 
 **Screen recording**
-- Selected area (adjustable before start), a single window, a whole app, or the full screen
-- System audio, microphone, cursor, click highlighting, 24/30/60 fps, MP4/MOV, H.264/HEVC, countdown
-- Stop from the menu bar icon, the Stop button on the floating panel, or the same shortcut
+- Area, window, app, full screen
+- System audio, microphone, cursor, click highlighting
+- 24, 30, 60 fps; MP4, MOV; H.264, HEVC; countdown
 
 ### Installation
 
-**Prebuilt app (recommended)**
-
 1. Download `Kadr.zip` from the [latest release](https://github.com/veylord-dev/Kadr/releases/latest).
-2. Unzip it and move **Kadr.app** to the Applications folder.
-3. The app is not notarized by Apple, so on first launch **right-click it → Open** and confirm.
-   Or run in Terminal:
+2. Unzip and move `Kadr.app` to Applications.
+3. On first launch: right-click the app → Open. Or in Terminal:
    ```bash
    xattr -dr com.apple.quarantine /Applications/Kadr.app
    ```
-4. Grant access: **System Settings → Privacy & Security → Screen & System Audio Recording** → turn on Kadr,
-   then restart the app.
-5. The icon appears in the menu bar. Launch at login is enabled automatically; turn it off from the menu or in
-   Settings. Interface language is in Settings → General → Language.
+4. System Settings → Privacy & Security → Screen & System Audio Recording → enable Kadr and restart the app.
 
-Requires macOS 15 or later, Apple Silicon or Intel.
+Requirements: macOS 15+, Apple Silicon or Intel.
 
-**Build from source**
+Launch at login is enabled on first launch; turn it off in the app menu or in Settings.
+Language: Settings → General → Language.
 
-Only the Command Line Tools are needed (`xcode-select --install`); Xcode is not required.
+### Build
+
+Requires Command Line Tools (`xcode-select --install`).
 
 ```bash
 git clone https://github.com/veylord-dev/Kadr.git
 cd Kadr
-./build.sh            # build build/Kadr.app
-./build.sh install    # build and install to /Applications
-./build.sh release    # build the build/Kadr.zip release archive
+./build.sh            # build/Kadr.app
+./build.sh install    # install to /Applications
+./build.sh release    # build/Kadr.zip archive
 ```
 
-### Shortcuts (configurable in Settings)
+### Shortcuts
+
+Configurable in Settings.
 
 | Action | Keys |
 |---|---|
 | Capture area | ⌥⇧1 |
 | Capture window | ⌥⇧2 |
 | Capture full screen | ⌥⇧3 |
-| Recognize text (OCR) | ⌥⇧4 |
+| Recognize text | ⌥⇧4 |
 | Record area | ⌥⇧5 |
-| Record window / app | ⌥⇧6 |
+| Record window or app | ⌥⇧6 |
 | Record full screen | ⌥⇧7 |
 | Capture and pin | ⌥⇧8 |
 
-**Selection:** drag — area · click — window · Space — window mode · ↩ — full screen · C — copy color ·
-Esc — cancel. While recording, ⌥ + click a window records the whole app.
+**Selection:** drag — area, click — window, Space — window mode, ↩ — full screen, C — copy color, Esc — cancel.
+While recording, ⌥ + click a window records the whole app.
 
-**Editor:** V select · A arrow · L line · R rectangle · O oval · P pen · M highlighter · T text · N counter ·
-B pixelate · S spotlight · K crop · I color picker · U ruler. Shift — straight angles and squares.
-⌘C copy · ⌘S save · ⇧⌘S save as · ⌘P pin · ⌘Z/⇧⌘Z undo/redo · ⌘+/⌘−/⌘0/⌘9 zoom · ⌫ delete · Esc close.
+**Editor:** V select, A arrow, L line, R rectangle, O oval, P pen, M highlighter, T text, N counter, B pixelate,
+S spotlight, K crop, I color picker, U ruler. Shift — 45° angles and squares.
+⌘C copy, ⌘S save, ⇧⌘S save as, ⌘P pin, ⌘Z / ⇧⌘Z undo and redo, ⌘+ / ⌘− / ⌘0 / ⌘9 zoom, ⌫ delete, Esc close.
 
-### About the code
+### Code
 
-Swift, a single executable with no Xcode project and no dependencies. `build.sh` compiles it with `swiftc` into
-a universal binary (arm64 + x86_64).
+Swift, AppKit, ScreenCaptureKit, Vision. No Xcode project, no third-party dependencies. `build.sh` builds a
+universal binary (arm64 + x86_64).
 
 | File | Contents |
 |---|---|
-| `Sources/main.swift` | Entry point, menu bar menu, action handling, screenshot and recording flows |
-| `Sources/Capture.swift` | ScreenCaptureKit captures, window list, screen geometry, image save and copy |
-| `Sources/SelectionOverlay.swift` | Full-screen selection: area, window, loupe, adjustable frame before recording |
-| `Sources/Editor.swift` | Editor window, toolbar, canvas, undo/redo, crop |
-| `Sources/Annotations.swift` | Tools and annotation model, drawing and final image rendering |
-| `Sources/Recorder.swift` | Recording via `SCStream` + `SCRecordingOutput`, area frame and timer panel |
-| `Sources/PinAndOCR.swift` | Pinned screenshot windows, text and QR recognition (Vision), text panel |
-| `Sources/Toast.swift` | Toast notifications and countdown |
-| `Sources/Hotkeys.swift` | Global hotkeys (Carbon) and the shortcut recorder control |
-| `Sources/Settings.swift` | Settings (SwiftUI), defaults, launch at login |
-| `Sources/Localization.swift` | Language selection and the `L("ru", "en")` helper for UI strings |
-| `Tools/make_icon.swift` | App icon generator |
-| `build.sh` | Build, signing, install and release archive |
-
-**How it works**
-- Screenshots: all displays are captured at full resolution first, then shown frozen for selection — so the loupe
-  is pixel-accurate and the result is cropped from the captured image.
-- Annotations are value types (`struct`), so undo just stores copies of the array. The same code draws them on
-  the canvas and into the full-resolution output image.
-- Recording: `SCRecordingOutput` writes the video and audio file directly; Kadr's own windows are excluded.
-- Localization: every UI string is written as `L("русский", "English")`; changing the language rebuilds the menu
-  and settings immediately.
+| `Sources/main.swift` | Entry point, menu, screenshot and recording flows |
+| `Sources/Capture.swift` | ScreenCaptureKit capture, window list, save and copy |
+| `Sources/SelectionOverlay.swift` | Area and window selection, loupe |
+| `Sources/Editor.swift` | Editor window, canvas, undo, crop |
+| `Sources/Annotations.swift` | Annotation model and drawing |
+| `Sources/Recorder.swift` | Recording via `SCStream` and `SCRecordingOutput` |
+| `Sources/PinAndOCR.swift` | Pinned screenshots, text and QR recognition |
+| `Sources/Toast.swift` | Notifications, countdown |
+| `Sources/Hotkeys.swift` | Global hotkeys (Carbon) |
+| `Sources/Settings.swift` | Settings (SwiftUI), launch at login |
+| `Sources/Localization.swift` | Language selection, `L("ru", "en")` helper |
+| `Tools/make_icon.swift` | Icon generator |
+| `build.sh` | Build, signing, install, archive |
