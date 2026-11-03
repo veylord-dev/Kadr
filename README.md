@@ -24,6 +24,12 @@ Native AppKit + ScreenCaptureKit, no dependencies. Interface in **English** and 
 - System audio, microphone, cursor, click highlighting, 24/30/60 fps, MP4/MOV, H.264/HEVC, countdown
 - Stop from the menu bar icon, the floating HUD, or the same shortcut
 
+## Download
+
+Get `ShotCap.zip` from the [latest release](https://github.com/veylord-dev/ShotCap/releases/latest), unzip it
+and move **ShotCap.app** to Applications. The app is not notarized, so on first launch right-click it → **Open**,
+or run `xattr -dr com.apple.quarantine /Applications/ShotCap.app`.
+
 ## Requirements & build
 
 macOS 15 or later, Xcode Command Line Tools (`xcode-select --install`).
@@ -72,6 +78,10 @@ B pixelate · S spotlight · K crop · I color picker · U ruler. Shift — stra
 
 **Запись видео:** область, окно, приложение целиком или весь экран; системный звук, микрофон, курсор,
 подсветка кликов, 24/30/60 к/с, MP4/MOV, H.264/HEVC, обратный отсчёт.
+
+**Скачать:** `ShotCap.zip` в [последнем релизе](https://github.com/veylord-dev/ShotCap/releases/latest).
+Распакуйте, перенесите ShotCap.app в «Программы». Приложение не нотариально заверено, поэтому при первом
+запуске нажмите на него правой кнопкой → «Открыть».
 
 **Сборка:** macOS 15+, Command Line Tools. `./build.sh` — сборка, `./build.sh install` — установка в «Программы».
 При первом запуске разрешите «Запись экрана и системного аудио» и перезапустите приложение.

@@ -12,8 +12,12 @@ rm -rf "$ICONSET"
 swift Tools/make_icon.swift "$ICONSET"
 iconutil -c icns "$ICONSET" -o "$APP/Contents/Resources/AppIcon.icns"
 
-swiftc -O -swift-version 5 -target arm64-apple-macos15 \
-    -o "$APP/Contents/MacOS/ShotCap" Sources/*.swift
+# Универсальный бинарник: Apple Silicon + Intel.
+for ARCH in arm64 x86_64; do
+    swiftc -O -swift-version 5 -target $ARCH-apple-macos15 -o build/ShotCap-$ARCH Sources/*.swift
+done
+lipo -create build/ShotCap-arm64 build/ShotCap-x86_64 -output "$APP/Contents/MacOS/ShotCap"
+rm build/ShotCap-arm64 build/ShotCap-x86_64
 
 cat > "$APP/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
@@ -47,6 +51,12 @@ else
     codesign --force --sign - -r='designated => identifier "local.shotcap"' "$APP"
 fi
 echo "Готово: $APP (подпись: ${IDENTITY:-ad-hoc})"
+
+if [[ "$1" == "release" ]]; then
+    # Архив для GitHub Releases (ditto сохраняет подпись и атрибуты).
+    ditto -c -k --keepParent "$APP" build/ShotCap.zip
+    echo "Архив: build/ShotCap.zip"
+fi
 
 if [[ "$1" == "install" ]]; then
     DEST=/Applications/ShotCap.app
