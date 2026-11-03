@@ -10,7 +10,7 @@ enum SelectionResult {
     case fullScreen(NSScreen)
 }
 
-// Полноэкранное выделение области/окна поверх всех экранов (как в Shottr).
+// Полноэкранное выделение области/окна поверх всех экранов.
 // Для скриншота экран «замораживается»: под курсором — лупа с пикселями и цветом.
 final class SelectionOverlay {
     private static var current: SelectionOverlay?
